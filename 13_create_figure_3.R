@@ -51,9 +51,13 @@ tiff("D:\\projects\\nhood_mediation_lead\\figures\\figure_3.tiff",
 plot(blncdb$ncondadvg,blncdb$nprbllgt5sm,
 	ylim=c(0,1.0),
 	xlim=c(-1.9,3.1),
-	ylab=("Elevated Blood Lead Prevalence"),
+	yaxt="n",
+	ylab=("Elevated Blood-Lead Prevalence"),
 	xlab=("Concentrated Disadvantage"),
-	col="grey")
+	col="grey",
+	font.lab=2)
+
+axis(2, at=c(0.0,0.2,0.4,0.6,0.8,1.0), labels=c("0",".2",".4",".6",".8","1"), las=2)
 
 lines(ndata$ncondadvg,nfit$fit,type="l",lty="solid")
 lines(ndata$ncondadvg,(nfit$fit+1.96*nfit$se.fit),type="l",lty="dotted")

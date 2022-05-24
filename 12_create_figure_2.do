@@ -182,9 +182,9 @@ save "${project_directory}\data\_TEMP\ncdb_temp.dta", replace
 
 spmap ncondadvg using "${project_directory}\data\_TEMP\ILcoord.dta", ///
 	id(id) fcolor(Greys2) clm(q) cln(10) ndf(magenta) ///
-	title("Concentrated Disadvantage", size(medium)) ///
-	legtitle("Deciles")
-
+	title("{bf:Concentrated disadvantage}", size(medlarge)) ///
+	legend(title("Deciles", size(small)) symysize(*1.2) symxsize(*1.2) size(*1.2))
+	
 graph save "${project_directory}\figures\_TEMP\fig2a.gph", replace
 
 //Panel B: Elevated blood Pb prevalence
@@ -284,8 +284,8 @@ replace nprbllgt5sm = round(nprbllgt5sm, 0.01)
 
 spmap nprbllgt5sm using "${project_directory}\data\_TEMP\ILcoord.dta", ///
 	id(id) fcolor(Greys2) clm(q) cln(10) ndf(magenta) /// 
-	title("Elevated Blood Lead Prevalence", size(medium)) ///
-	legtitle("Deciles")
+	title("{bf:Elevated blood-lead prevalence}", size(medlarge)) ///
+	legend(title("Deciles", size(small)) symysize(*1.2) symxsize(*1.2) size(*1.2))
 	
 graph save "${project_directory}\figures\_TEMP\fig2b.gph", replace
 
@@ -295,9 +295,8 @@ graph combine ///
 	"${project_directory}\figures\_TEMP\fig2b.gph", ///
 	col(2) row(1) ysize(5) xsize(9) scheme(s2mono)
 
-graph export "${project_directory}\figures\figure_2.jpg", as(jpg) replace
-*graph export "${project_directory}\figures\figure_2.emf", as(emf) replace
-*graph export "${project_directory}\figures\_figure_2.pdf", as(pdf) replace
+*graph export "${project_directory}\figures\figure_2.jpg", as(jpg) replace
+graph export "${project_directory}\figures\figure_2.pdf", as(pdf) replace
 
 erase "${project_directory}\data\_TEMP\chicago2000tracts.dta"
 erase "${project_directory}\data\_TEMP\ILcoord.dta"

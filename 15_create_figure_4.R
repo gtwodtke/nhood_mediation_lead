@@ -584,11 +584,15 @@ plot(1:4,
 		  lines(output.ate[,1],output.ate[,3],type="l",lty="dashed"),
 		  lines(output.ate[,1],output.ate[,4],type="l",lty="dashed"),
 		  lines(output.ate[,1],output.ate[,2],type="l",lty="solid")),
-	main="Sens. of ATE to Unobserved Selection",
+	main="Sensitivity of ATE",
 	xlab="Multiples of Tau",
-	ylab="Bias-corrected ATE estimate",
+	ylab="Bias-Corrected ATE Estimate",
 	xlim=c(-1.0,2.0),
-	ylim=c(-1.0,0.75))
+	ylim=c(-1.0,0.75),
+	yaxt="n",
+	font.lab=2)
+
+axis(2, las=2)
 
 xval<-yval<-seq(-1,2,by=0.25)
 zeros<-rwrest.aje-rwrest.aje
@@ -596,10 +600,10 @@ ul95<-rwrest.aje+1.96*bootse.aje
 ll95<-rwrest.aje-1.96*bootse.aje
 
 persp(xval,yval,ll95,
-	main="Sens. of AJE to Unobserved Selection",
+	main="Sensitivity of AJE",
 	xlab="Multiples of Phi",
 	ylab="Multiples of Psi",
-	zlab="Bias-corrected AJE estimate",
+	zlab="Bias-Corrected AJE Estimate",
 	ylim=c(-1.1,2.1),
 	xlim=c(-1.1,2.1),
 	zlim=c(-1.0,0.75),
@@ -610,7 +614,8 @@ persp(xval,yval,ll95,
 	nticks=6,
 	cex.axis=0.7,
 	cex.lab=0.8,
-	mar=c(1,1,4,1))
+	mar=c(1,1,4,1),
+	font.lab=2)
 
 par(new=T)
 
@@ -672,11 +677,15 @@ plot(1:4,
 		  lines(output.cde[,1],output.cde[,3],type="l",lty="dashed"),
 		  lines(output.cde[,1],output.cde[,4],type="l",lty="dashed"),
 		  lines(output.cde[,1],output.cde[,2],type="l",lty="solid")),
-	main="Sens. of CDE to Unobserved Selection",
+	main="Sensitivity of CDE",
 	xlab="Multiples of Phi",
-	ylab="Bias-corrected CDE estimate",
+	ylab="Bias-Corrected CDE Estimate",
 	xlim=c(-1.0,2.0),
-	ylim=c(-1.0,0.75))
+	ylim=c(-1.0,0.75),
+	yaxt="n",
+	font.lab=2)
+
+axis(2, las=2)
 
 plot(1:4,
 	panel.first = 
@@ -684,11 +693,15 @@ plot(1:4,
 		  lines(output.cme[,1],output.cme[,3],type="l",lty="dashed"),
 		  lines(output.cme[,1],output.cme[,4],type="l",lty="dashed"),
 		  lines(output.cme[,1],output.cme[,2],type="l",lty="solid")),
-	main="Sens. of CME to Unobserved Selection",
+	main="Sensitivity of CME",
 	xlab="Multiples of Psi",
 	ylab="Bias-corrected CME estimate",
 	xlim=c(-1.0,2.0),
-	ylim=c(-1.0,0.75))
+	ylim=c(-1.0,0.75),
+	yaxt="n",
+	font.lab=2)
+
+axis(2, las=2)
 
 dev.off()
 
